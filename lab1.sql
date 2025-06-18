@@ -8,6 +8,10 @@ USE Database_ner;
 SHOW TABLES;
 # Хүснэлтийг мэдээлэл харах
 DESCRIBE student;
+# Өгөгдлийн сан устгах
+DROP DATABASE database_ner;
+# Хүснэгт устгах
+DROP TABLE student;
 # Хүснэгт үүсгэх
 CREATE TABLE student
 (
@@ -25,7 +29,7 @@ CREATE TABLE student
     email       varchar(255) null,
     mergjil     varchar(255) null,
     oyutan_code varchar(12)  not null
-        primary key
+    primary key
 );
 
 

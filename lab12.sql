@@ -24,7 +24,7 @@ VALUES
 ('1234567910', 'Тогоо', 'Оюунгэрэл', 'Мөнхтогтох', 1, '2000-09-28', 'Монгол', 'Өвөрхангай', 'Арвайхээр', 'Хишигсүрэн', '99112253', 'monghtogtokh@email.com', 'Програмчлал', 'P-020');
 
 # Update 5 Rows (5 мөр шинэчлэх):
-UPDATE student
+UPDATE student~
 SET Ner = 'Баяржаргал', aimag = 'Говь-Алтай', sum = 'Эрдэнэ', email = 'bayarjargal@email.com'
 WHERE oyutan_code = 'F-001';
 
