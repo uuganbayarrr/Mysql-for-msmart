@@ -24,28 +24,23 @@ SELECT * FROM hicheel;
 
 SELECT hicheel_ner, kr FROM hicheel;
 
-
 SELECT * FROM hicheel WHERE uliral = 'хавар';
-
 
 SELECT * FROM hicheel WHERE zaawal_eseh = TRUE;
 
-
 SELECT * FROM hicheel WHERE unmuh_holboo <> 'None';
-
 
 SELECT * FROM hicheel WHERE kr > 2;
 
-
 SELECT * FROM hicheel ORDER BY kr DESC;
-
 
 SELECT * FROM hicheel WHERE uliral = 'намар' AND zaawal_eseh = FALSE;
 
-
 SELECT * FROM hicheel WHERE hicheel_ner LIKE '%I%';
-
 
 SELECT uliral, COUNT(*) AS subject_count
 FROM hicheel
 GROUP BY uliral;
+
+SELECT * FROM student WHERE Ner LIKE '%Та%';
+SELECT * FROM student WHERE Ner LIKE '_а%'
