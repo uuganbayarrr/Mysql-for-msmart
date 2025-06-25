@@ -36,3 +36,92 @@ VALUES
 ('T-006', 208),
 ('T-015', 209),
 ('T-017', 210);
+
+SELECT s.Oyutan_code, s.Ner,
+       COUNT(h.hicheel_code) AS num_courses
+FROM student s
+JOIN oyutan_hicheel oh ON s.oyutan_code = oh.oyutan_code
+JOIN hicheel h ON oh.hicheel_code = h.hicheel_code
+GROUP BY s.Oyutan_code, s.Ner, s.Urgiin_owog, s.Owog, s.huis, s.aimag, s.sum, s.mergjil;
+
+SELECT s.Ner AS Student_Name, s.Urgiin_owog AS First_Name, s.Owog AS Last_Name, h.hicheel_ner AS Course_Name
+FROM student s
+JOIN oyutan_hicheel oh ON s.oyutan_code = oh.oyutan_code
+JOIN hicheel h ON oh.hicheel_code = h.hicheel_code;
+
+
+SELECT 
+    s.Ner AS Student_Name, 
+    s.Owog AS Last_Name, 
+    h.hicheel_ner AS Course_Name
+FROM 
+    student s
+JOIN 
+    oyutan_hicheel oh ON s.oyutan_code = oh.oyutan_code
+JOIN 
+    hicheel h ON oh.hicheel_code = h.hicheel_code;
+
+
+
+SELECT 
+    s.Ner AS Student_Name, 
+    s.Owog AS Last_Name
+FROM 
+    student s
+JOIN 
+    oyutan_hicheel oh ON s.oyutan_code = oh.oyutan_code
+JOIN 
+    hicheel h ON oh.hicheel_code = h.hicheel_code
+WHERE 
+    h.hicheel_ner = 'Математик I';
+
+
+SELECT 
+    s.Ner AS Student_Name, 
+    s.Owog AS Last_Name
+FROM 
+    student s
+LEFT JOIN 
+    oyutan_hicheel oh ON s.oyutan_code = oh.oyutan_code
+LEFT JOIN 
+    hicheel h ON oh.hicheel_code = h.hicheel_code
+WHERE 
+    h.hicheel_ner IS NULL;
+
+SELECT 
+    h.hicheel_ner AS Course_Name, 
+    COUNT(s.oyutan_code) AS Number_of_Students
+FROM 
+    hicheel h
+JOIN 
+    oyutan_hicheel oh ON h.hicheel_code = oh.hicheel_code
+JOIN 
+    student s ON oh.oyutan_code = s.oyutan_code
+GROUP BY 
+    h.hicheel_ner;
+
+SELECT 
+    s.Ner AS Student_Name, 
+    s.Owog AS Last_Name, 
+    h.hicheel_ner AS Course_Name, 
+    h.unmuh_holboo AS Instructor
+FROM 
+    student s
+JOIN 
+    oyutan_hicheel oh ON s.oyutan_code = oh.oyutan_code
+JOIN 
+    hicheel h ON oh.hicheel_code = h.hicheel_code;
+
+SELECT 
+    s.Ner AS Student_Name, 
+    COUNT(h.hicheel_code) AS Number_of_Courses
+FROM 
+    student s
+JOIN 
+    oyutan_hicheel oh ON s.oyutan_code = oh.oyutan_code
+JOIN 
+    hicheel h ON oh.hicheel_code = h.hicheel_code
+GROUP BY 
+    s.oyutan_code
+HAVING 
+    COUNT(h.hicheel_code) > 1;
