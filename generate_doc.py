@@ -4,7 +4,7 @@ import sys
 import mysql.connector
 
 if len(sys.argv) < 2:
-    print("`burgeilId` hoosom")
+    print("`burgeilId` hooson")
     sys.exit(1)
 
 burgeil_id = sys.argv[1]
